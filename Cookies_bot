@@ -32,7 +32,8 @@ class CookieAPI:
                 self.number += 1
             else:
                 for product_price in self.productPrice():
-                    value = int(product_price.text)
+                    val = (product_price.text).replace(",", "")
+                    value = int(val)
                     if count >= value:
                         buy_actions = ActionChains(self.driver)
                         buy_actions.move_to_element(product_price)
